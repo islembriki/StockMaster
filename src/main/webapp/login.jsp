@@ -16,6 +16,7 @@
     <%-- Affichage d'un message d'erreur si la connexion échoue ou si l'accès est refusé --%>
     <p style="color: red;">${param.error == 'unauthorized' ? 'Veuillez vous connecter pour accéder au catalogue.' : ''}</p>
     <p style="color: red;">${param.error == 'bad_credentials' ? 'Login ou mot de passe incorrect.' : ''}</p>
+    <p style="color: green;">${param.loggedout == 'true' ? 'Vous avez été déconnecté avec succès.' : ''}</p>
 
     <form action="connexion" method="post">
          <label>Login :</label>
@@ -29,4 +30,4 @@
 
 </body>
 </html>
-<%-- kalit li profa inou fichier ili yithat fi root yani aa bara etheka fichier ywali acesbile lil end users kol w ynjmou ychufou code teeou --% >
+<%-- Note pour la prof : Ce fichier est à la racine, donc accessible publiquement --%>
