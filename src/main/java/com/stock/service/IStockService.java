@@ -4,6 +4,16 @@ import com.stock.model.Produit;
 import java.util.List;
 
 public interface IStockService {
-    // Logic: Returns the catalog (Person 1 will call this)
+
+    /**
+     * Authenticates a user based on login and password.
+     * (Part 2: Logic used by LoginServlet)
+     */
+    boolean authentifier(String login, String password);
+
+    /**
+     * Retrieves the list of products for the catalog.
+     * (Part 1: Mock data / Part 5: Real database data)
+     */
     List<Produit> getCatalogue();
 }
