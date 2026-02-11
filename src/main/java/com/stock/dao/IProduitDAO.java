@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface IProduitDAO {
     // Contract: Anyone using this must provide a list of Products
-    List<Produit> findAll();
+    List<Produit> findAll();//the abstract method to be defined later @belkis
 }

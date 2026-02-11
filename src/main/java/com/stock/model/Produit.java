@@ -1,6 +1,4 @@
-package com.stock.model;//aleh hatinaha w nahna deja fi wistha
-//w aleh nhotou fi classe li produit hnee
-
+package com.stock.model;
 import java.io.Serializable;
 
 // A Java Bean must be Serializable, have a no-arg constructor, and public getters/setters
