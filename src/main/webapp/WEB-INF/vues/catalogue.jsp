@@ -126,6 +126,90 @@
             margin-top: 20px;
             display: inline-block;
         }
+
+        /* Delete Button Styles */
+        .delete-btn {
+            background: #ff7675;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .delete-btn:hover {
+            background: #d63031;
+            transform: scale(1.05);
+        }
+
+        /* Add Product Form Styles */
+        .add-product-form {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .add-product-form h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #2d3436;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+            align-items: flex-end;
+        }
+
+        .form-group {
+            flex: 1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #636e72;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #6c5ce7;
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+        }
+
+        .submit-btn {
+            background: #6c5ce7;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #5f3dc4;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -143,6 +227,24 @@
         </div>
     </div>
 
+    <!-- Add Product Form -->
+    <div class="add-product-form">
+        <h2>➕ Ajouter un Nouveau Produit</h2>
+        <form action="product-action" method="post">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nom">Nom du Produit</label>
+                    <input type="text" id="nom" name="nom" placeholder="Ex: Laptop HP" required>
+                </div>
+                <div class="form-group">
+                    <label for="prix">Prix (TND)</label>
+                    <input type="number" id="prix" name="prix" step="0.01" placeholder="Ex: 1500.00" required>
+                </div>
+                <button type="submit" class="submit-btn">Ajouter</button>
+            </div>
+        </form>
+    </div>
+
     <!-- Main Product Table -->
     <div class="table-container">
         <h1>Inventaire des Produits</h1>
@@ -153,6 +255,7 @@
                 <th>ID</th>
                 <th>Nom du Produit</th>
                 <th>Prix Unitaire</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -160,7 +263,14 @@
                 <tr>
                     <td class="id-badge">#${p.id}</td>
                     <td style="font-weight: 500;">${p.nom}</td>
-                    <td class="price-tag">${p.prix} €</td>
+                    <td class="price-tag">${p.prix} TND</td>
+                    <td>
+                        <form action="product-action" method="get" style="display: inline;">
+                            <input type="hidden" name="action" value="delete">
+                            <input type="hidden" name="id" value="${p.id}">
+                            <button type="submit" class="delete-btn" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')">Supprimer</button>
+                        </form>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>

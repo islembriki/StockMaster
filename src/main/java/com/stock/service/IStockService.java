@@ -16,4 +16,9 @@ public interface IStockService {
      * (Part 1: Mock data / Part 5: Real database data)
      */
     List<Produit> getCatalogue();
+
+    //crud operations
+    public void addProduit(Produit p);
+    public void deleteProduit(int id);
+
 }
