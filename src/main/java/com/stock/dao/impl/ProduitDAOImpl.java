@@ -22,4 +22,4 @@ public class ProduitDAOImpl implements IProduitDAO {
     }
 }
 
-//Pour l'instant, c'est une DAO de simulation (Mocking), mais l'architecture est déjà en place. Le Service communique avec la DAO par son interface, respectant ainsi le découplage total.
+//Pour l'instant, c'est une DAO de simulation (Mocking),- mais l'architecture est déjà en place. Le Service communique avec la DAO par son interface, respectant ainsi le découplage total.
